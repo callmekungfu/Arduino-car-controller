@@ -88,6 +88,7 @@ namespace arduino {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->btnRight = (gcnew System::Windows::Forms::Button());
 			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->serialPort1 = (gcnew System::IO::Ports::SerialPort(this->components));
@@ -112,22 +113,15 @@ namespace arduino {
 			// 
 			this->btnRight->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(3)), static_cast<System::Int32>(static_cast<System::Byte>(169)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(244)));
-			this->btnRight->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			resources->ApplyResources(this->btnRight, L"btnRight");
 			this->btnRight->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnRight->FlatAppearance->BorderSize = 0;
 			this->btnRight->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(2)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
 			this->btnRight->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(2)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
-			this->btnRight->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnRight->Font = (gcnew System::Drawing::Font(L"Roboto", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
 			this->btnRight->ForeColor = System::Drawing::Color::White;
-			this->btnRight->Location = System::Drawing::Point(366, 83);
 			this->btnRight->Name = L"btnRight";
-			this->btnRight->Size = System::Drawing::Size(119, 42);
-			this->btnRight->TabIndex = 0;
-			this->btnRight->Text = L"TURN RIGHT";
 			this->btnRight->UseVisualStyleBackColor = false;
 			this->btnRight->Click += gcnew System::EventHandler(this, &Form1::btnRight_Click);
 			// 
@@ -142,15 +136,9 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
 			this->btnExit->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(2)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
-			this->btnExit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnExit->Font = (gcnew System::Drawing::Font(L"Roboto", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->btnExit, L"btnExit");
 			this->btnExit->ForeColor = System::Drawing::Color::White;
-			this->btnExit->Location = System::Drawing::Point(120, 342);
 			this->btnExit->Name = L"btnExit";
-			this->btnExit->Size = System::Drawing::Size(365, 42);
-			this->btnExit->TabIndex = 1;
-			this->btnExit->Text = L"EXIT";
 			this->btnExit->UseVisualStyleBackColor = false;
 			this->btnExit->Click += gcnew System::EventHandler(this, &Form1::btnExit_Click);
 			// 
@@ -170,15 +158,9 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
 			this->btnLeft->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(2)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
-			this->btnLeft->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnLeft->Font = (gcnew System::Drawing::Font(L"Roboto", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->btnLeft, L"btnLeft");
 			this->btnLeft->ForeColor = System::Drawing::Color::White;
-			this->btnLeft->Location = System::Drawing::Point(120, 83);
 			this->btnLeft->Name = L"btnLeft";
-			this->btnLeft->Size = System::Drawing::Size(119, 42);
-			this->btnLeft->TabIndex = 3;
-			this->btnLeft->Text = L"TURN LEFT";
 			this->btnLeft->UseVisualStyleBackColor = false;
 			this->btnLeft->Click += gcnew System::EventHandler(this, &Form1::btnLeft_Click);
 			// 
@@ -192,15 +174,9 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
 			this->btnBackward->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(2)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
-			this->btnBackward->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnBackward->Font = (gcnew System::Drawing::Font(L"Roboto", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->btnBackward, L"btnBackward");
 			this->btnBackward->ForeColor = System::Drawing::Color::White;
-			this->btnBackward->Location = System::Drawing::Point(243, 83);
 			this->btnBackward->Name = L"btnBackward";
-			this->btnBackward->Size = System::Drawing::Size(119, 42);
-			this->btnBackward->TabIndex = 4;
-			this->btnBackward->Text = L"BACKWARD";
 			this->btnBackward->UseVisualStyleBackColor = false;
 			this->btnBackward->Click += gcnew System::EventHandler(this, &Form1::btnBackward_Click);
 			// 
@@ -214,15 +190,9 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
 			this->btnForward->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(2)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
-			this->btnForward->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnForward->Font = (gcnew System::Drawing::Font(L"Roboto", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->btnForward, L"btnForward");
 			this->btnForward->ForeColor = System::Drawing::Color::White;
-			this->btnForward->Location = System::Drawing::Point(243, 35);
 			this->btnForward->Name = L"btnForward";
-			this->btnForward->Size = System::Drawing::Size(119, 42);
-			this->btnForward->TabIndex = 5;
-			this->btnForward->Text = L"FORWARD";
 			this->btnForward->UseVisualStyleBackColor = false;
 			this->btnForward->Click += gcnew System::EventHandler(this, &Form1::btnForward_Click);
 			// 
@@ -236,15 +206,9 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
 			this->btnShutDown->FlatAppearance->MouseOverBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(2)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
-			this->btnShutDown->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnShutDown->Font = (gcnew System::Drawing::Font(L"Roboto", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->btnShutDown, L"btnShutDown");
 			this->btnShutDown->ForeColor = System::Drawing::Color::White;
-			this->btnShutDown->Location = System::Drawing::Point(120, 131);
 			this->btnShutDown->Name = L"btnShutDown";
-			this->btnShutDown->Size = System::Drawing::Size(365, 42);
-			this->btnShutDown->TabIndex = 6;
-			this->btnShutDown->Text = L"TURN OFF ENGINE";
 			this->btnShutDown->UseVisualStyleBackColor = false;
 			this->btnShutDown->Click += gcnew System::EventHandler(this, &Form1::btnShutDown_Click);
 			// 
@@ -252,16 +216,11 @@ namespace arduino {
 			// 
 			this->menuStrip1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), static_cast<System::Int32>(static_cast<System::Byte>(74)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			this->menuStrip1->Font = (gcnew System::Drawing::Font(L"Roboto", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->menuStrip1, L"menuStrip1");
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->generalToolStripMenuItem, 
 				this->advancedToolStripMenuItem});
 			this->menuStrip1->LayoutStyle = System::Windows::Forms::ToolStripLayoutStyle::Flow;
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(604, 23);
-			this->menuStrip1->TabIndex = 7;
-			this->menuStrip1->Text = L"menuStrip1";
 			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &Form1::menuStrip1_ItemClicked);
 			// 
 			// generalToolStripMenuItem
@@ -271,11 +230,8 @@ namespace arduino {
 			this->generalToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->restartToolStripMenuItem, 
 				this->exitToolStripMenuItem});
 			this->generalToolStripMenuItem->ForeColor = System::Drawing::Color::White;
-			this->generalToolStripMenuItem->ImageTransparentColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
-				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			resources->ApplyResources(this->generalToolStripMenuItem, L"generalToolStripMenuItem");
 			this->generalToolStripMenuItem->Name = L"generalToolStripMenuItem";
-			this->generalToolStripMenuItem->Size = System::Drawing::Size(60, 19);
-			this->generalToolStripMenuItem->Text = L"General";
 			// 
 			// restartToolStripMenuItem
 			// 
@@ -283,9 +239,7 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->restartToolStripMenuItem->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->restartToolStripMenuItem->Name = L"restartToolStripMenuItem";
-			this->restartToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::N));
-			this->restartToolStripMenuItem->Size = System::Drawing::Size(154, 22);
-			this->restartToolStripMenuItem->Text = L"Restart";
+			resources->ApplyResources(this->restartToolStripMenuItem, L"restartToolStripMenuItem");
 			this->restartToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::restartToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem
@@ -294,8 +248,7 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->exitToolStripMenuItem->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
-			this->exitToolStripMenuItem->Size = System::Drawing::Size(154, 22);
-			this->exitToolStripMenuItem->Text = L"Exit";
+			resources->ApplyResources(this->exitToolStripMenuItem, L"exitToolStripMenuItem");
 			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::exitToolStripMenuItem_Click);
 			// 
 			// advancedToolStripMenuItem
@@ -303,11 +256,8 @@ namespace arduino {
 			this->advancedToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->creditsToolStripMenuItem, 
 				this->helpToolStripMenuItem, this->propertiesToolStripMenuItem});
 			this->advancedToolStripMenuItem->ForeColor = System::Drawing::Color::White;
-			this->advancedToolStripMenuItem->ImageTransparentColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
-				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			resources->ApplyResources(this->advancedToolStripMenuItem, L"advancedToolStripMenuItem");
 			this->advancedToolStripMenuItem->Name = L"advancedToolStripMenuItem";
-			this->advancedToolStripMenuItem->Size = System::Drawing::Size(73, 19);
-			this->advancedToolStripMenuItem->Text = L"Advanced";
 			// 
 			// creditsToolStripMenuItem
 			// 
@@ -315,9 +265,7 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->creditsToolStripMenuItem->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->creditsToolStripMenuItem->Name = L"creditsToolStripMenuItem";
-			this->creditsToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::F7;
-			this->creditsToolStripMenuItem->Size = System::Drawing::Size(169, 22);
-			this->creditsToolStripMenuItem->Text = L"Credits";
+			resources->ApplyResources(this->creditsToolStripMenuItem, L"creditsToolStripMenuItem");
 			this->creditsToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::creditsToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
@@ -326,9 +274,7 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->helpToolStripMenuItem->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->helpToolStripMenuItem->Name = L"helpToolStripMenuItem";
-			this->helpToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::H));
-			this->helpToolStripMenuItem->Size = System::Drawing::Size(169, 22);
-			this->helpToolStripMenuItem->Text = L"Help";
+			resources->ApplyResources(this->helpToolStripMenuItem, L"helpToolStripMenuItem");
 			this->helpToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::helpToolStripMenuItem_Click);
 			// 
 			// propertiesToolStripMenuItem
@@ -337,46 +283,35 @@ namespace arduino {
 				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->propertiesToolStripMenuItem->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->propertiesToolStripMenuItem->Name = L"propertiesToolStripMenuItem";
-			this->propertiesToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::J));
-			this->propertiesToolStripMenuItem->Size = System::Drawing::Size(169, 22);
-			this->propertiesToolStripMenuItem->Text = L"Properties";
+			resources->ApplyResources(this->propertiesToolStripMenuItem, L"propertiesToolStripMenuItem");
 			this->propertiesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::propertiesToolStripMenuItem_Click);
 			// 
 			// txtPrompt
 			// 
 			this->txtPrompt->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->txtPrompt->Font = (gcnew System::Drawing::Font(L"Roboto", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
-			this->txtPrompt->Location = System::Drawing::Point(120, 179);
+			resources->ApplyResources(this->txtPrompt, L"txtPrompt");
 			this->txtPrompt->Name = L"txtPrompt";
 			this->txtPrompt->ReadOnly = true;
-			this->txtPrompt->Size = System::Drawing::Size(365, 157);
-			this->txtPrompt->TabIndex = 8;
-			this->txtPrompt->Text = L"";
 			// 
 			// btnClear
 			// 
 			this->btnClear->BackColor = System::Drawing::Color::DarkGray;
+			this->btnClear->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnClear->FlatAppearance->BorderSize = 0;
-			this->btnClear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnClear->Font = (gcnew System::Drawing::Font(L"Roboto", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
-			this->btnClear->Location = System::Drawing::Point(425, 311);
+			resources->ApplyResources(this->btnClear, L"btnClear");
 			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(60, 25);
-			this->btnClear->TabIndex = 9;
-			this->btnClear->Text = L"Clear";
 			this->btnClear->UseVisualStyleBackColor = false;
 			this->btnClear->Click += gcnew System::EventHandler(this, &Form1::btnClear_Click);
+			this->btnClear->MouseEnter += gcnew System::EventHandler(this, &Form1::btnClear_MouseEnter);
+			this->btnClear->MouseLeave += gcnew System::EventHandler(this, &Form1::btnClear_MouseLeave);
 			// 
 			// Form1
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(96, 96);
+			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Dpi;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(87)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(34)));
 			this->CancelButton = this->btnExit;
-			this->ClientSize = System::Drawing::Size(604, 409);
 			this->Controls->Add(this->btnClear);
 			this->Controls->Add(this->txtPrompt);
 			this->Controls->Add(this->btnShutDown);
@@ -391,7 +326,8 @@ namespace arduino {
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
 			this->Name = L"Form1";
-			this->Text = L"Arduino LED controller";
+			this->TransparencyKey = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::Form1_KeyPress);
 			this->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::Form1_MouseDown);
@@ -409,7 +345,7 @@ namespace arduino {
 
 				 //this->serialPort1->Open();
 				this->dragging = false;
-				txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.51 \n";
+				txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.53 \n";
 			 }
 
 	private: System::Void btnExit_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -535,6 +471,13 @@ private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^
 			 txtPrompt->Text = "" + ">Text Cleared \n";
 		 }
 private: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
+		 }
+private: System::Void btnClear_MouseEnter(System::Object^  sender, System::EventArgs^  e) {
+			 btnClear->BackColor = System::Drawing::Color::LightGray;
+		 }
+
+private: System::Void btnClear_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
+			 btnClear->BackColor = System::Drawing::Color::DarkGray;
 		 }
 };
 }
