@@ -309,13 +309,14 @@ namespace arduino {
 			resources->ApplyResources(this->btnEnter, L"btnEnter");
 			this->btnEnter->Name = L"btnEnter";
 			this->btnEnter->UseVisualStyleBackColor = false;
-
+			this->btnEnter->Click += gcnew System::EventHandler(this, &Form1::btnEnter_Click);
 			// 
 			// txtInput
 			// 
 			this->txtInput->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			resources->ApplyResources(this->txtInput, L"txtInput");
 			this->txtInput->Name = L"txtInput";
+			this->txtInput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtInput_KeyPress);
 			// 
 			// Form1
 			// 
@@ -500,6 +501,18 @@ private: System::Void propertiesToolStripMenuItem_Click_1(System::Object^  sende
 		 }
 private: System::Void serialPortToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			 txtPrompt->Text = "" + ">Text Cleared \n";
+		 }
+private: System::Void btnEnter_Click(System::Object^  sender, System::EventArgs^  e) {
+			 txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";
+			 txtInput->Text = "";
+			 //this->serialPort1->Write(txtInput->Text);
+		 }
+private: System::Void txtInput_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
+			 if(e->KeyChar == Char(13)){
+				txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";
+				txtInput->Text = "";
+				//this->serialPort1->Write(txtInput->Text);
+			 }
 		 }
 };
 }
