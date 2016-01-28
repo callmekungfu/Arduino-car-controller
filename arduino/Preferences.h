@@ -41,6 +41,7 @@ namespace arduino {
 	private: System::Windows::Forms::Button^  btnApply;
 	private: System::Windows::Forms::Button^  btnExit;
 	private: System::Windows::Forms::MenuStrip^  menuStrip1;
+	private: System::Windows::Forms::LinkLabel^  llblUC;
 	protected: 
 
 
@@ -68,6 +69,7 @@ namespace arduino {
 			this->btnApply = (gcnew System::Windows::Forms::Button());
 			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->llblUC = (gcnew System::Windows::Forms::LinkLabel());
 			this->SuspendLayout();
 			// 
 			// comboBox1
@@ -138,6 +140,24 @@ namespace arduino {
 			this->menuStrip1->TabIndex = 9;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
+			// llblUC
+			// 
+			this->llblUC->ActiveLinkColor = System::Drawing::Color::Gainsboro;
+			this->llblUC->AutoSize = true;
+			this->llblUC->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->llblUC->Font = (gcnew System::Drawing::Font(L"Roboto", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(0)));
+			this->llblUC->LinkColor = System::Drawing::Color::White;
+			this->llblUC->Location = System::Drawing::Point(3, 136);
+			this->llblUC->Name = L"llblUC";
+			this->llblUC->Size = System::Drawing::Size(267, 29);
+			this->llblUC->TabIndex = 10;
+			this->llblUC->TabStop = true;
+			this->llblUC->Text = L"Still Under Construction";
+			this->llblUC->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->llblUC->VisitedLinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			// 
 			// Preferences
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
@@ -145,6 +165,7 @@ namespace arduino {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(87)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(34)));
 			this->ClientSize = System::Drawing::Size(270, 351);
+			this->Controls->Add(this->llblUC);
 			this->Controls->Add(this->btnApply);
 			this->Controls->Add(this->btnExit);
 			this->Controls->Add(this->comboBox1);

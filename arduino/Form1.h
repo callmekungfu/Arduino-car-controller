@@ -358,162 +358,162 @@ namespace arduino {
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 
 				 //this->serialPort1->Open();
-				this->dragging = false;
-				txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.53 \n";
-				array<String^>^ serialPorts = nullptr;
-				try{
-						// Get a list of serial port names.
-						serialPorts = SerialPort::GetPortNames();
-				}catch (Win32Exception^ ex){
-						Console::WriteLine(ex->Message);
-				}
-			  }
+				 this->dragging = false;
+				 txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.53 \n";
+				 array<String^>^ serialPorts = nullptr;
+				 try{
+					 // Get a list of serial port names.
+					 serialPorts = SerialPort::GetPortNames();
+				 }catch (Win32Exception^ ex){
+					 Console::WriteLine(ex->Message);
+				 }
+			 }
 
 	private: System::Void btnExit_Click(System::Object^  sender, System::EventArgs^  e) {
-				 
+
 				 //this->serialPort1->Close();
 				 Application::Exit();	
 
-		 }
-private: System::Void btnRight_Click(System::Object^  sender, System::EventArgs^  e) {
-				txtPrompt->Text = txtPrompt->Text + ">Turning Right \n";
-				btnRight->Enabled = false;
-				btnLeft->Enabled = true;
-				btnBackward->Enabled = true;
-				btnForward->Enabled = true;
-				//this->serialPort1->Write("3");
+			 }
+	private: System::Void btnRight_Click(System::Object^  sender, System::EventArgs^  e) {
+				 txtPrompt->Text = txtPrompt->Text + ">Turning Right \n";
+				 btnRight->Enabled = false;
+				 btnLeft->Enabled = true;
+				 btnBackward->Enabled = true;
+				 btnForward->Enabled = true;
+				 //this->serialPort1->Write("3");
 
-		 }
-private: System::Void btnLeft_Click(System::Object^  sender, System::EventArgs^  e) {
-				txtPrompt->Text = txtPrompt->Text + ">Turning Left \n";
-				btnRight->Enabled = true;
-				btnLeft->Enabled = false;
-				btnBackward->Enabled = true;
-				btnForward->Enabled = true;
-				//this->serialPort1->Write("4");
+			 }
+	private: System::Void btnLeft_Click(System::Object^  sender, System::EventArgs^  e) {
+				 txtPrompt->Text = txtPrompt->Text + ">Turning Left \n";
+				 btnRight->Enabled = true;
+				 btnLeft->Enabled = false;
+				 btnBackward->Enabled = true;
+				 btnForward->Enabled = true;
+				 //this->serialPort1->Write("4");
 
-		 }
-private: System::Void btnBackward_Click(System::Object^  sender, System::EventArgs^  e) {
-				txtPrompt->Text = txtPrompt->Text + ">Going Backward \n";
-				btnRight->Enabled = true;
-				btnLeft->Enabled = true;
-				btnBackward->Enabled = false;
-				btnForward->Enabled = true;
-				//this->serialPort1->Write("2");
+			 }
+	private: System::Void btnBackward_Click(System::Object^  sender, System::EventArgs^  e) {
+				 txtPrompt->Text = txtPrompt->Text + ">Going Backward \n";
+				 btnRight->Enabled = true;
+				 btnLeft->Enabled = true;
+				 btnBackward->Enabled = false;
+				 btnForward->Enabled = true;
+				 //this->serialPort1->Write("2");
 
-		 }
-private: System::Void btnForward_Click(System::Object^  sender, System::EventArgs^  e) {
-				txtPrompt->Text = txtPrompt->Text + ">Going Forward \n";
-				btnRight->Enabled = true;
-				btnLeft->Enabled = true;
-				btnBackward->Enabled = true;
-				btnForward->Enabled = false;
-				//this->serialPort1->Write("1");
+			 }
+	private: System::Void btnForward_Click(System::Object^  sender, System::EventArgs^  e) {
+				 txtPrompt->Text = txtPrompt->Text + ">Going Forward \n";
+				 btnRight->Enabled = true;
+				 btnLeft->Enabled = true;
+				 btnBackward->Enabled = true;
+				 btnForward->Enabled = false;
+				 //this->serialPort1->Write("1");
 
-		 }
-private: System::Void btnShutDown_Click(System::Object^  sender, System::EventArgs^  e) {
-				txtPrompt->Text = txtPrompt->Text + ">Engine Stopped \n";
-				btnRight->Enabled = true;
-				btnLeft->Enabled = true;
-				btnBackward->Enabled = true;
-				btnForward->Enabled = true;
-				//this->serialPort1->Write("0");
+			 }
+	private: System::Void btnShutDown_Click(System::Object^  sender, System::EventArgs^  e) {
+				 txtPrompt->Text = txtPrompt->Text + ">Engine Stopped \n";
+				 btnRight->Enabled = true;
+				 btnLeft->Enabled = true;
+				 btnBackward->Enabled = true;
+				 btnForward->Enabled = true;
+				 //this->serialPort1->Write("0");
 
-		 }
-private: System::Void Form1_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
+			 }
+	private: System::Void Form1_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
 
-			 if ((e->KeyChar >= 'a') && (e->KeyChar <= 'w') && (e->KeyChar <= 's')&& (e->KeyChar <= 'd'))
-        {
-            MessageBox::Show("Form.KeyPress: '" +
-                e->KeyChar.ToString() + "' pressed.");
+				 if ((e->KeyChar >= 'a') && (e->KeyChar <= 'w') && (e->KeyChar <= 's')&& (e->KeyChar <= 'd'))
+				 {
+					 MessageBox::Show("Form.KeyPress: '" +
+						 e->KeyChar.ToString() + "' pressed.");
 
-            switch (e->KeyChar)
-            {
-            case 'a':
-            case 'w':
-            case 's':
-                MessageBox::Show("Form.KeyPress: '" +
-                    e->KeyChar.ToString() + "' consumed.");
-                e->Handled = true;
-                break;
-            }
-        }
+					 switch (e->KeyChar)
+					 {
+					 case 'a':
+					 case 'w':
+					 case 's':
+						 MessageBox::Show("Form.KeyPress: '" +
+							 e->KeyChar.ToString() + "' consumed.");
+						 e->Handled = true;
+						 break;
+					 }
+				 }
 
-		 }
-private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 
-			 this->serialPort1->Close();
+				 this->serialPort1->Close();
 				 Application::Exit();
 
-		 }
-private: System::Void restartToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-
-			 if(MessageBox::Show(
-				 "Are you sure that you would like to close the form?", 
-				 "Form Closing", MessageBoxButtons::YesNo, 
-				 MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes){
-
-					Application::Restart();
 			 }
-			 
-			 
+	private: System::Void restartToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 
-		 }
-private: System::Void Form1_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+				 if(MessageBox::Show(
+					 "Are you sure that you would like to close the form?", 
+					 "Form Closing", MessageBoxButtons::YesNo, 
+					 MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes){
 
-			this->dragging = true;
-			this->offset = Point(e->X, e->Y);
+						 Application::Restart();
+				 }
 
-		 }
-private: System::Void Form1_MouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 
-			if (this->dragging){ //Move, soldier, MOVE!
-				Point currentScreenPos = PointToScreen(e->Location);
-				Location = Point(currentScreenPos.X - this->offset.X, 
-                currentScreenPos.Y - this->offset.Y);
-			}
 
-		 }
-private: System::Void Form1_MouseUp(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-			this->dragging = false;
-		 }
-
-private: System::Void helpToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-			txtPrompt->Text = txtPrompt->Text + ">Control Car with WASD \n" + 
-												">W: Forward \n" + 
-												">A: Left \n" + 
-												">S: Backward \n" + 
-												">D: Right \n" + 
-												">You may also control the car with buttons above. \n" + 
-												">To change preferences and settings press ctrl+j or go to advanced->Preferences. \n"
-												;
-		 }
-
-private: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
-		 }
-
-private: System::Void creditsToolStripMenuItem_Click_1(System::Object^  sender, System::EventArgs^  e) {
-			 txtPrompt->Text = txtPrompt->Text + ">Created By Yonglin Wang | GNU Some Rights Reserved | Find me on yongl.in or yonglinwang.ca \n";
-		 }
-private: System::Void propertiesToolStripMenuItem_Click_1(System::Object^  sender, System::EventArgs^  e) {
-			 Preferences ^ pf = gcnew Preferences;
-			 pf->ShowDialog();
-		 }
-private: System::Void serialPortToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-			 txtPrompt->Text = "" + ">Text Cleared \n";
-		 }
-private: System::Void btnEnter_Click(System::Object^  sender, System::EventArgs^  e) {
-			 txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";
-			 txtInput->Text = "";
-			 //this->serialPort1->Write(txtInput->Text);
-		 }
-private: System::Void txtInput_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
-			 if(e->KeyChar == Char(13)){
-				txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";
-				txtInput->Text = "";
-				//this->serialPort1->Write(txtInput->Text);
 			 }
-		 }
-};
+	private: System::Void Form1_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+
+				 this->dragging = true;
+				 this->offset = Point(e->X, e->Y);
+
+			 }
+	private: System::Void Form1_MouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+
+				 if (this->dragging){ //Move, soldier, MOVE!
+					 Point currentScreenPos = PointToScreen(e->Location);
+					 Location = Point(currentScreenPos.X - this->offset.X, 
+						 currentScreenPos.Y - this->offset.Y);
+				 }
+
+			 }
+	private: System::Void Form1_MouseUp(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+				 this->dragging = false;
+			 }
+
+	private: System::Void helpToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+				 txtPrompt->Text = txtPrompt->Text + ">Control Car with WASD \n" + 
+					 ">W: Forward \n" + 
+					 ">A: Left \n" + 
+					 ">S: Backward \n" + 
+					 ">D: Right \n" + 
+					 ">You may also control the car with buttons above. \n" + 
+					 ">To change preferences and settings press ctrl+j or go to advanced->Preferences. \n"
+					 ;
+			 }
+
+	private: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
+			 }
+
+	private: System::Void creditsToolStripMenuItem_Click_1(System::Object^  sender, System::EventArgs^  e) {
+				 txtPrompt->Text = txtPrompt->Text + ">Created By Yonglin Wang | GNU Some Rights Reserved | Find me on yongl.in or yonglinwang.ca \n";
+			 }
+	private: System::Void propertiesToolStripMenuItem_Click_1(System::Object^  sender, System::EventArgs^  e) {
+				 Preferences ^ pf = gcnew Preferences;
+				 pf->ShowDialog();
+			 }
+	private: System::Void serialPortToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+				 txtPrompt->Text = "" + ">Text Cleared \n";
+			 }
+	private: System::Void btnEnter_Click(System::Object^  sender, System::EventArgs^  e) {
+				 txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";
+				 txtInput->Text = "";
+				 //this->serialPort1->Write(txtInput->Text);
+			 }
+	private: System::Void txtInput_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
+				 if(e->KeyChar == Char(13)){
+					 txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";
+					 txtInput->Text = "";
+					 //this->serialPort1->Write(txtInput->Text);
+				 }
+			 }
+	};
 }
 
