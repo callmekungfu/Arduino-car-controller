@@ -151,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnRight.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="btnExit.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -181,7 +181,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnExit.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <metadata name="serialPort1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 18</value>
@@ -214,7 +214,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnLeft.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btnBackward.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -244,7 +244,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnBackward.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btnForward.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -274,7 +274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnForward.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnShutDown.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -304,7 +304,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnShutDown.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>131, 18</value>
@@ -316,13 +316,31 @@
     <value>Ctrl+N</value>
   </data>
   <data name="restartToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>169, 22</value>
   </data>
   <data name="restartToolStripMenuItem.Text" xml:space="preserve">
     <value>Restart</value>
   </data>
+  <data name="creditsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F7</value>
+  </data>
+  <data name="creditsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="creditsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="propertiesToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+J</value>
+  </data>
+  <data name="propertiesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="propertiesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Properties</value>
+  </data>
   <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>169, 22</value>
   </data>
   <data name="exitToolStripMenuItem.Text" xml:space="preserve">
     <value>Exit</value>
@@ -336,32 +354,20 @@
   <data name="generalToolStripMenuItem.Text" xml:space="preserve">
     <value>General</value>
   </data>
-  <data name="creditsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F7</value>
-  </data>
-  <data name="creditsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="creditsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Credits</value>
-  </data>
   <data name="helpToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+H</value>
   </data>
   <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
+    <value>146, 22</value>
   </data>
   <data name="helpToolStripMenuItem.Text" xml:space="preserve">
     <value>Help</value>
   </data>
-  <data name="propertiesToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+J</value>
+  <data name="serialPortToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 22</value>
   </data>
-  <data name="propertiesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
-  </data>
-  <data name="propertiesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Properties</value>
+  <data name="serialPortToolStripMenuItem.Text" xml:space="preserve">
+    <value>Clear Prompt</value>
   </data>
   <data name="advancedToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>230, 74, 25</value>
@@ -397,16 +403,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="txtPrompt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Roboto, 9pt</value>
+    <value>Courier New, 9pt</value>
   </data>
   <data name="txtPrompt.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 174</value>
   </data>
   <data name="txtPrompt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>365, 157</value>
+    <value>365, 129</value>
   </data>
   <data name="txtPrompt.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -424,43 +430,67 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtPrompt.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
-  <data name="btnClear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnEnter.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnClear.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnEnter.Font" type="System.Drawing.Font, System.Drawing">
     <value>Roboto, 9pt</value>
   </data>
-  <data name="btnClear.Location" type="System.Drawing.Point, System.Drawing">
-    <value>323, 306</value>
+  <data name="btnEnter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="btnClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 25</value>
+  <data name="btnEnter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>323, 303</value>
   </data>
-  <data name="btnClear.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnEnter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 28</value>
+  </data>
+  <data name="btnEnter.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="btnClear.Text" xml:space="preserve">
-    <value>Clear</value>
+  <data name="btnEnter.Text" xml:space="preserve">
+    <value>Enter</value>
   </data>
-  <data name="&gt;&gt;btnClear.Name" xml:space="preserve">
-    <value>btnClear</value>
+  <data name="&gt;&gt;btnEnter.Name" xml:space="preserve">
+    <value>btnEnter</value>
   </data>
-  <data name="&gt;&gt;btnClear.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnEnter.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnClear.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnEnter.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnClear.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnEnter.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtInput.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Roboto, 17pt</value>
+  </data>
+  <data name="txtInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 303</value>
+  </data>
+  <data name="txtInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>305, 28</value>
+  </data>
+  <data name="txtInput.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;txtInput.Name" xml:space="preserve">
+    <value>txtInput</value>
+  </data>
+  <data name="&gt;&gt;txtInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtInput.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtInput.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-CA</value>
   </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -492,6 +522,18 @@
   <data name="&gt;&gt;restartToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;creditsToolStripMenuItem.Name" xml:space="preserve">
+    <value>creditsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;creditsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;propertiesToolStripMenuItem.Name" xml:space="preserve">
+    <value>propertiesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;propertiesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;exitToolStripMenuItem.Name" xml:space="preserve">
     <value>exitToolStripMenuItem</value>
   </data>
@@ -504,22 +546,16 @@
   <data name="&gt;&gt;advancedToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;creditsToolStripMenuItem.Name" xml:space="preserve">
-    <value>creditsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;creditsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;helpToolStripMenuItem.Name" xml:space="preserve">
     <value>helpToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;helpToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;propertiesToolStripMenuItem.Name" xml:space="preserve">
-    <value>propertiesToolStripMenuItem</value>
+  <data name="&gt;&gt;serialPortToolStripMenuItem.Name" xml:space="preserve">
+    <value>serialPortToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;propertiesToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;serialPortToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

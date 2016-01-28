@@ -1,5 +1,6 @@
 #pragma once
 #include "Preferences.h"
+
 namespace arduino {
 
 	using namespace System;
@@ -55,20 +56,16 @@ namespace arduino {
 	private: System::Windows::Forms::ToolStripMenuItem^  advancedToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  restartToolStripMenuItem;
 
-	private: System::Windows::Forms::ToolStripMenuItem^  creditsToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^  helpToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  propertiesToolStripMenuItem;
+
 	private: System::Windows::Forms::RichTextBox^  txtPrompt;
-	private: System::Windows::Forms::Button^  btnClear;
 
-
-
-
-
-
-
-
-
+	private: System::Windows::Forms::ToolStripMenuItem^  serialPortToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  creditsToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  propertiesToolStripMenuItem;
+	private: System::Windows::Forms::Button^  btnEnter;
+	private: System::Windows::Forms::TextBox^  txtInput;
 
 
 
@@ -99,13 +96,15 @@ namespace arduino {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->generalToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->restartToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->creditsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->propertiesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->advancedToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->creditsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->propertiesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->serialPortToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->txtPrompt = (gcnew System::Windows::Forms::RichTextBox());
-			this->btnClear = (gcnew System::Windows::Forms::Button());
+			this->btnEnter = (gcnew System::Windows::Forms::Button());
+			this->txtInput = (gcnew System::Windows::Forms::TextBox());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -227,8 +226,8 @@ namespace arduino {
 			// 
 			this->generalToolStripMenuItem->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			this->generalToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->restartToolStripMenuItem, 
-				this->exitToolStripMenuItem});
+			this->generalToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {this->restartToolStripMenuItem, 
+				this->creditsToolStripMenuItem, this->propertiesToolStripMenuItem, this->exitToolStripMenuItem});
 			this->generalToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			resources->ApplyResources(this->generalToolStripMenuItem, L"generalToolStripMenuItem");
 			this->generalToolStripMenuItem->Name = L"generalToolStripMenuItem";
@@ -242,6 +241,24 @@ namespace arduino {
 			resources->ApplyResources(this->restartToolStripMenuItem, L"restartToolStripMenuItem");
 			this->restartToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::restartToolStripMenuItem_Click);
 			// 
+			// creditsToolStripMenuItem
+			// 
+			this->creditsToolStripMenuItem->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->creditsToolStripMenuItem->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->creditsToolStripMenuItem->Name = L"creditsToolStripMenuItem";
+			resources->ApplyResources(this->creditsToolStripMenuItem, L"creditsToolStripMenuItem");
+			this->creditsToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::creditsToolStripMenuItem_Click_1);
+			// 
+			// propertiesToolStripMenuItem
+			// 
+			this->propertiesToolStripMenuItem->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->propertiesToolStripMenuItem->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->propertiesToolStripMenuItem->Name = L"propertiesToolStripMenuItem";
+			resources->ApplyResources(this->propertiesToolStripMenuItem, L"propertiesToolStripMenuItem");
+			this->propertiesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::propertiesToolStripMenuItem_Click_1);
+			// 
 			// exitToolStripMenuItem
 			// 
 			this->exitToolStripMenuItem->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
@@ -253,20 +270,11 @@ namespace arduino {
 			// 
 			// advancedToolStripMenuItem
 			// 
-			this->advancedToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->creditsToolStripMenuItem, 
-				this->helpToolStripMenuItem, this->propertiesToolStripMenuItem});
+			this->advancedToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->helpToolStripMenuItem, 
+				this->serialPortToolStripMenuItem});
 			this->advancedToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			resources->ApplyResources(this->advancedToolStripMenuItem, L"advancedToolStripMenuItem");
 			this->advancedToolStripMenuItem->Name = L"advancedToolStripMenuItem";
-			// 
-			// creditsToolStripMenuItem
-			// 
-			this->creditsToolStripMenuItem->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
-				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			this->creditsToolStripMenuItem->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->creditsToolStripMenuItem->Name = L"creditsToolStripMenuItem";
-			resources->ApplyResources(this->creditsToolStripMenuItem, L"creditsToolStripMenuItem");
-			this->creditsToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::creditsToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -277,14 +285,14 @@ namespace arduino {
 			resources->ApplyResources(this->helpToolStripMenuItem, L"helpToolStripMenuItem");
 			this->helpToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::helpToolStripMenuItem_Click);
 			// 
-			// propertiesToolStripMenuItem
+			// serialPortToolStripMenuItem
 			// 
-			this->propertiesToolStripMenuItem->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
+			this->serialPortToolStripMenuItem->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			this->propertiesToolStripMenuItem->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->propertiesToolStripMenuItem->Name = L"propertiesToolStripMenuItem";
-			resources->ApplyResources(this->propertiesToolStripMenuItem, L"propertiesToolStripMenuItem");
-			this->propertiesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::propertiesToolStripMenuItem_Click);
+			this->serialPortToolStripMenuItem->ForeColor = System::Drawing::Color::White;
+			this->serialPortToolStripMenuItem->Name = L"serialPortToolStripMenuItem";
+			resources->ApplyResources(this->serialPortToolStripMenuItem, L"serialPortToolStripMenuItem");
+			this->serialPortToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::serialPortToolStripMenuItem_Click);
 			// 
 			// txtPrompt
 			// 
@@ -293,17 +301,21 @@ namespace arduino {
 			this->txtPrompt->Name = L"txtPrompt";
 			this->txtPrompt->ReadOnly = true;
 			// 
-			// btnClear
+			// btnEnter
 			// 
-			this->btnClear->BackColor = System::Drawing::Color::DarkGray;
-			this->btnClear->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->btnClear->FlatAppearance->BorderSize = 0;
-			resources->ApplyResources(this->btnClear, L"btnClear");
-			this->btnClear->Name = L"btnClear";
-			this->btnClear->UseVisualStyleBackColor = false;
-			this->btnClear->Click += gcnew System::EventHandler(this, &Form1::btnClear_Click);
-			this->btnClear->MouseEnter += gcnew System::EventHandler(this, &Form1::btnClear_MouseEnter);
-			this->btnClear->MouseLeave += gcnew System::EventHandler(this, &Form1::btnClear_MouseLeave);
+			this->btnEnter->BackColor = System::Drawing::Color::DarkGray;
+			this->btnEnter->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnEnter->FlatAppearance->BorderSize = 0;
+			resources->ApplyResources(this->btnEnter, L"btnEnter");
+			this->btnEnter->Name = L"btnEnter";
+			this->btnEnter->UseVisualStyleBackColor = false;
+
+			// 
+			// txtInput
+			// 
+			this->txtInput->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			resources->ApplyResources(this->txtInput, L"txtInput");
+			this->txtInput->Name = L"txtInput";
 			// 
 			// Form1
 			// 
@@ -312,7 +324,8 @@ namespace arduino {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(87)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(34)));
 			this->CancelButton = this->btnExit;
-			this->Controls->Add(this->btnClear);
+			this->Controls->Add(this->txtInput);
+			this->Controls->Add(this->btnEnter);
 			this->Controls->Add(this->txtPrompt);
 			this->Controls->Add(this->btnShutDown);
 			this->Controls->Add(this->btnForward);
@@ -346,7 +359,14 @@ namespace arduino {
 				 //this->serialPort1->Open();
 				this->dragging = false;
 				txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.53 \n";
-			 }
+				array<String^>^ serialPorts = nullptr;
+				try{
+						// Get a list of serial port names.
+						serialPorts = SerialPort::GetPortNames();
+				}catch (Win32Exception^ ex){
+						Console::WriteLine(ex->Message);
+				}
+			  }
 
 	private: System::Void btnExit_Click(System::Object^  sender, System::EventArgs^  e) {
 				 
@@ -427,7 +447,15 @@ private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, Syste
 		 }
 private: System::Void restartToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 
-			 Application::Restart();
+			 if(MessageBox::Show(
+				 "Are you sure that you would like to close the form?", 
+				 "Form Closing", MessageBoxButtons::YesNo, 
+				 MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes){
+
+					Application::Restart();
+			 }
+			 
+			 
 
 		 }
 private: System::Void Form1_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
@@ -448,9 +476,6 @@ private: System::Void Form1_MouseMove(System::Object^  sender, System::Windows::
 private: System::Void Form1_MouseUp(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 			this->dragging = false;
 		 }
-private: System::Void creditsToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-			txtPrompt->Text = txtPrompt->Text + ">Created By Yonglin Wang | GNU Some Rights Reserved | Find me on yongl.in or yonglinwang.ca \n";
-		 }
 
 private: System::Void helpToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 			txtPrompt->Text = txtPrompt->Text + ">Control Car with WASD \n" + 
@@ -462,22 +487,19 @@ private: System::Void helpToolStripMenuItem_Click(System::Object^  sender, Syste
 												">To change preferences and settings press ctrl+j or go to advanced->Preferences. \n"
 												;
 		 }
-private: System::Void propertiesToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-			 //MessageBox::Show("Sorry, Still building it...", "Sorry...");
-			 Preferences ^ pf = gcnew Preferences;
-				pf->ShowDialog();
-		 }
-private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^  e) {
-			 txtPrompt->Text = "" + ">Text Cleared \n";
-		 }
+
 private: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
 		 }
-private: System::Void btnClear_MouseEnter(System::Object^  sender, System::EventArgs^  e) {
-			 btnClear->BackColor = System::Drawing::Color::LightGray;
-		 }
 
-private: System::Void btnClear_MouseLeave(System::Object^  sender, System::EventArgs^  e) {
-			 btnClear->BackColor = System::Drawing::Color::DarkGray;
+private: System::Void creditsToolStripMenuItem_Click_1(System::Object^  sender, System::EventArgs^  e) {
+			 txtPrompt->Text = txtPrompt->Text + ">Created By Yonglin Wang | GNU Some Rights Reserved | Find me on yongl.in or yonglinwang.ca \n";
+		 }
+private: System::Void propertiesToolStripMenuItem_Click_1(System::Object^  sender, System::EventArgs^  e) {
+			 Preferences ^ pf = gcnew Preferences;
+			 pf->ShowDialog();
+		 }
+private: System::Void serialPortToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 txtPrompt->Text = "" + ">Text Cleared \n";
 		 }
 };
 }
