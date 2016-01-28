@@ -343,7 +343,8 @@ namespace arduino {
 			this->TransparencyKey = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
-			this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::Form1_KeyPress);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Form1::Form1_KeyDown);
+			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Form1::Form1_KeyUp);
 			this->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::Form1_MouseDown);
 			this->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::Form1_MouseMove);
 			this->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::Form1_MouseUp);
@@ -359,7 +360,7 @@ namespace arduino {
 
 				 //this->serialPort1->Open();
 				 this->dragging = false;
-				 txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.55.1 \n";
+				 txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.55.2 \n";
 				 array<String^>^ serialPorts = nullptr;
 				 try{
 					 // Get a list of serial port names.
@@ -420,26 +421,7 @@ namespace arduino {
 				 //this->serialPort1->Write("0");
 
 			 }
-	private: System::Void Form1_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
-
-				 if ((e->KeyChar >= 'a') && (e->KeyChar <= 'w') && (e->KeyChar <= 's')&& (e->KeyChar <= 'd'))
-				 {
-					 MessageBox::Show("Form.KeyPress: '" +
-						 e->KeyChar.ToString() + "' pressed.");
-
-					 switch (e->KeyChar)
-					 {
-					 case 'a':
-					 case 'w':
-					 case 's':
-						 MessageBox::Show("Form.KeyPress: '" +
-							 e->KeyChar.ToString() + "' consumed.");
-						 e->Handled = true;
-						 break;
-					 }
-				 }
-
-			 }
+	
 	private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 
 				 this->serialPort1->Close();
@@ -514,6 +496,60 @@ namespace arduino {
 					 //this->serialPort1->Write(txtInput->Text);
 				 }
 			 }
-	};
+private: System::Void Form1_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+			 switch (e->KeyCode)
+					 {
+					 case Keys::A:
+						 if(btnLeft->Enabled){
+							 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
+						 }
+						 btnRight->Enabled = true;
+						 btnLeft->Enabled = false;
+						 btnBackward->Enabled = true;
+						 btnForward->Enabled = true;
+						 break;
+					 case Keys::W:
+						 if(btnForward->Enabled){
+							 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
+						 }
+						 btnRight->Enabled = true;
+						 btnLeft->Enabled = true;
+						 btnBackward->Enabled = true;
+						 btnForward->Enabled = false;
+						 break;
+					 case Keys::S:
+						 if(btnBackward->Enabled){
+							 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
+						 }
+						 btnRight->Enabled = true;
+						 btnLeft->Enabled = true;
+						 btnBackward->Enabled = false;
+						 btnForward->Enabled = true;
+						 break;
+					 case Keys::D:
+						 if(btnRight->Enabled){
+							 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
+						 }
+						 btnRight->Enabled = false;
+						 btnLeft->Enabled = true;
+						 btnBackward->Enabled = true;
+						 btnForward->Enabled = true;
+						 break;
+					 }
+		 }
+private: System::Void Form1_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+			 switch (e->KeyCode){
+			 case Keys::A:
+			 case Keys::S:
+			 case Keys::W:
+			 case Keys::D:
+				 txtPrompt->Text = txtPrompt->Text + ">Breaked \n";
+				 btnRight->Enabled = true;
+				 btnLeft->Enabled = true;
+				 btnBackward->Enabled = true;
+				 btnForward->Enabled = true;
+			 }
+		 }
+};
 }
 
