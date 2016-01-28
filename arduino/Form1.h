@@ -66,6 +66,9 @@ namespace arduino {
 	private: System::Windows::Forms::ToolStripMenuItem^  propertiesToolStripMenuItem;
 	private: System::Windows::Forms::Button^  btnEnter;
 	private: System::Windows::Forms::TextBox^  txtInput;
+	private: System::Windows::Forms::ToolStripMenuItem^  changePortToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  dummyToolStripMenuItem;
+
 
 
 
@@ -102,6 +105,8 @@ namespace arduino {
 			this->advancedToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->serialPortToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->changePortToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->dummyToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->txtPrompt = (gcnew System::Windows::Forms::RichTextBox());
 			this->btnEnter = (gcnew System::Windows::Forms::Button());
 			this->txtInput = (gcnew System::Windows::Forms::TextBox());
@@ -270,8 +275,8 @@ namespace arduino {
 			// 
 			// advancedToolStripMenuItem
 			// 
-			this->advancedToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->helpToolStripMenuItem, 
-				this->serialPortToolStripMenuItem});
+			this->advancedToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->helpToolStripMenuItem, 
+				this->serialPortToolStripMenuItem, this->changePortToolStripMenuItem});
 			this->advancedToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			resources->ApplyResources(this->advancedToolStripMenuItem, L"advancedToolStripMenuItem");
 			this->advancedToolStripMenuItem->Name = L"advancedToolStripMenuItem";
@@ -293,6 +298,20 @@ namespace arduino {
 			this->serialPortToolStripMenuItem->Name = L"serialPortToolStripMenuItem";
 			resources->ApplyResources(this->serialPortToolStripMenuItem, L"serialPortToolStripMenuItem");
 			this->serialPortToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::serialPortToolStripMenuItem_Click);
+			// 
+			// changePortToolStripMenuItem
+			// 
+			this->changePortToolStripMenuItem->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->changePortToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {this->dummyToolStripMenuItem});
+			this->changePortToolStripMenuItem->ForeColor = System::Drawing::Color::White;
+			this->changePortToolStripMenuItem->Name = L"changePortToolStripMenuItem";
+			resources->ApplyResources(this->changePortToolStripMenuItem, L"changePortToolStripMenuItem");
+			// 
+			// dummyToolStripMenuItem
+			// 
+			this->dummyToolStripMenuItem->Name = L"dummyToolStripMenuItem";
+			resources->ApplyResources(this->dummyToolStripMenuItem, L"dummyToolStripMenuItem");
 			// 
 			// txtPrompt
 			// 
@@ -355,19 +374,12 @@ namespace arduino {
 
 		}
 #pragma endregion
-
+	
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 
 				 //this->serialPort1->Open();
 				 this->dragging = false;
 				 txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.55.2 \n";
-				 array<String^>^ serialPorts = nullptr;
-				 try{
-					 // Get a list of serial port names.
-					 serialPorts = SerialPort::GetPortNames();
-				 }catch (Win32Exception^ ex){
-					 Console::WriteLine(ex->Message);
-				 }
 			 }
 
 	private: System::Void btnExit_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -421,7 +433,7 @@ namespace arduino {
 				 //this->serialPort1->Write("0");
 
 			 }
-	
+
 	private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 
 				 this->serialPort1->Close();
@@ -496,60 +508,64 @@ namespace arduino {
 					 //this->serialPort1->Write(txtInput->Text);
 				 }
 			 }
-private: System::Void Form1_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
-			 switch (e->KeyCode)
-					 {
-					 case Keys::A:
-						 if(btnLeft->Enabled){
-							 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
-						 }
-						 btnRight->Enabled = true;
-						 btnLeft->Enabled = false;
-						 btnBackward->Enabled = true;
-						 btnForward->Enabled = true;
-						 break;
-					 case Keys::W:
-						 if(btnForward->Enabled){
-							 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
-						 }
-						 btnRight->Enabled = true;
-						 btnLeft->Enabled = true;
-						 btnBackward->Enabled = true;
-						 btnForward->Enabled = false;
-						 break;
-					 case Keys::S:
-						 if(btnBackward->Enabled){
-							 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
-						 }
-						 btnRight->Enabled = true;
-						 btnLeft->Enabled = true;
-						 btnBackward->Enabled = false;
-						 btnForward->Enabled = true;
-						 break;
-					 case Keys::D:
-						 if(btnRight->Enabled){
-							 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
-						 }
-						 btnRight->Enabled = false;
-						 btnLeft->Enabled = true;
-						 btnBackward->Enabled = true;
-						 btnForward->Enabled = true;
-						 break;
+	private: System::Void Form1_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+				 switch (e->KeyCode)
+				 {
+				 case Keys::A:
+					 if(btnLeft->Enabled){
+						 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
 					 }
-		 }
-private: System::Void Form1_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
-			 switch (e->KeyCode){
-			 case Keys::A:
-			 case Keys::S:
-			 case Keys::W:
-			 case Keys::D:
-				 txtPrompt->Text = txtPrompt->Text + ">Breaked \n";
-				 btnRight->Enabled = true;
-				 btnLeft->Enabled = true;
-				 btnBackward->Enabled = true;
-				 btnForward->Enabled = true;
+					 btnRight->Enabled = true;
+					 btnLeft->Enabled = false;
+					 btnBackward->Enabled = true;
+					 btnForward->Enabled = true;
+					 //this->serialPort1->Write("4");
+					 break;
+				 case Keys::W:
+					 if(btnForward->Enabled){
+						 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
+					 }
+					 btnRight->Enabled = true;
+					 btnLeft->Enabled = true;
+					 btnBackward->Enabled = true;
+					 btnForward->Enabled = false;
+					 //this->serialPort1->Write("1");
+					 break;
+				 case Keys::S:
+					 if(btnBackward->Enabled){
+						 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
+					 }
+					 btnRight->Enabled = true;
+					 btnLeft->Enabled = true;
+					 btnBackward->Enabled = false;
+					 btnForward->Enabled = true;
+					 //this->serialPort1->Write("2");
+					 break;
+				 case Keys::D:
+					 if(btnRight->Enabled){
+						 txtPrompt->Text = txtPrompt->Text + ">Going Left \n";
+					 }
+					 btnRight->Enabled = false;
+					 btnLeft->Enabled = true;
+					 btnBackward->Enabled = true;
+					 btnForward->Enabled = true;
+					 //this->serialPort1->Write("3");
+					 break;
+				 }
 			 }
-		 }
-};
+	private: System::Void Form1_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+				 switch (e->KeyCode){
+				 case Keys::A:
+				 case Keys::S:
+				 case Keys::W:
+				 case Keys::D:
+					 txtPrompt->Text = txtPrompt->Text + ">Breaked \n";
+					 btnRight->Enabled = true;
+					 btnLeft->Enabled = true;
+					 btnBackward->Enabled = true;
+					 btnForward->Enabled = true;
+				 }
+			 }
+	};
 }
 
