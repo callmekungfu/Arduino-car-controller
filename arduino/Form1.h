@@ -359,7 +359,7 @@ namespace arduino {
 
 				 //this->serialPort1->Open();
 				 this->dragging = false;
-				 txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.53 \n";
+				 txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.55.1 \n";
 				 array<String^>^ serialPorts = nullptr;
 				 try{
 					 // Get a list of serial port names.

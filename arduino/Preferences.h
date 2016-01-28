@@ -37,7 +37,7 @@ namespace arduino {
 	private: bool dragging;
 	private: Point offset;
 
-	private: System::Windows::Forms::ComboBox^  comboBox1;
+
 	private: System::Windows::Forms::Button^  btnApply;
 	private: System::Windows::Forms::Button^  btnExit;
 	private: System::Windows::Forms::MenuStrip^  menuStrip1;
@@ -65,31 +65,18 @@ namespace arduino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->btnApply = (gcnew System::Windows::Forms::Button());
 			this->btnExit = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->llblUC = (gcnew System::Windows::Forms::LinkLabel());
 			this->SuspendLayout();
 			// 
-			// comboBox1
-			// 
-			this->comboBox1->BackColor = System::Drawing::Color::White;
-			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Roboto", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
-				static_cast<System::Byte>(0)));
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(118, 49);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(105, 28);
-			this->comboBox1->TabIndex = 0;
-			this->comboBox1->Text = L"COMX";
-			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Preferences::comboBox1_SelectedIndexChanged);
-			// 
 			// btnApply
 			// 
 			this->btnApply->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(3)), static_cast<System::Int32>(static_cast<System::Byte>(169)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(244)));
 			this->btnApply->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnApply->Enabled = false;
 			this->btnApply->FlatAppearance->BorderSize = 0;
 			this->btnApply->FlatAppearance->MouseDownBackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(2)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(136)), static_cast<System::Int32>(static_cast<System::Byte>(209)));
@@ -168,7 +155,6 @@ namespace arduino {
 			this->Controls->Add(this->llblUC);
 			this->Controls->Add(this->btnApply);
 			this->Controls->Add(this->btnExit);
-			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->MainMenuStrip = this->menuStrip1;
