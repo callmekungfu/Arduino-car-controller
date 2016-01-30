@@ -10,6 +10,7 @@ namespace arduino {
 	using namespace System::Drawing;
 	using namespace System::IO::Ports;
 
+
 	/// <summary>
 	/// Summary for Preferences
 	/// </summary>
@@ -105,6 +106,7 @@ namespace arduino {
 			this->btnApply->TabIndex = 8;
 			this->btnApply->Text = L"APPLY";
 			this->btnApply->UseVisualStyleBackColor = false;
+			this->btnApply->Click += gcnew System::EventHandler(this, &Preferences::btnApply_Click);
 			// 
 			// btnExit
 			// 
@@ -170,7 +172,7 @@ namespace arduino {
 			this->cbxSerialPorts->Name = L"cbxSerialPorts";
 			this->cbxSerialPorts->Size = System::Drawing::Size(112, 28);
 			this->cbxSerialPorts->TabIndex = 11;
-			this->cbxSerialPorts->Text = L"COMX";
+			this->cbxSerialPorts->Text = L"COM6";
 			this->cbxSerialPorts->SelectedIndexChanged += gcnew System::EventHandler(this, &Preferences::cbxSerialPorts_SelectedIndexChanged_1);
 			// 
 			// lblSerialPortSelection
@@ -241,6 +243,10 @@ namespace arduino {
 				 this->dragging = false;
 			 }
 	private: System::Void cbxSerialPorts_SelectedIndexChanged_1(System::Object^  sender, System::EventArgs^  e) {
+				 Form1->txtPrompt->Text = ">It worked";
 			 }
-	};
+	private: System::Void btnApply_Click(System::Object^  sender, System::EventArgs^  e) {
+
+			 }
+};
 }

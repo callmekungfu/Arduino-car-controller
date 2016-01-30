@@ -253,7 +253,7 @@
     <value>Roboto, 12pt</value>
   </data>
   <data name="btnForward.Location" type="System.Drawing.Point, System.Drawing">
-    <value>141, 30</value>
+    <value>141, 31</value>
   </data>
   <data name="btnForward.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 42</value>
@@ -368,18 +368,6 @@
   </data>
   <data name="serialPortToolStripMenuItem.Text" xml:space="preserve">
     <value>Clear Prompt</value>
-  </data>
-  <data name="dummyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 22</value>
-  </data>
-  <data name="dummyToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dummy</value>
-  </data>
-  <data name="changePortToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="changePortToolStripMenuItem.Text" xml:space="preserve">
-    <value>Change Port</value>
   </data>
   <data name="advancedToolStripMenuItem.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>230, 74, 25</value>
@@ -571,18 +559,6 @@
     <value>serialPortToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;serialPortToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;changePortToolStripMenuItem.Name" xml:space="preserve">
-    <value>changePortToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;changePortToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dummyToolStripMenuItem.Name" xml:space="preserve">
-    <value>dummyToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;dummyToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

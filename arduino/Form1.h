@@ -20,6 +20,7 @@ namespace arduino {
 		Form1(void)
 		{
 			InitializeComponent();
+			IsTesing();
 		}
 
 	protected:
@@ -40,7 +41,7 @@ namespace arduino {
 
 	private: System::Windows::Forms::Button^  btnExit;
 
-	private: System::IO::Ports::SerialPort^  serialPort1;
+	public: System::IO::Ports::SerialPort^  serialPort1;
 	private: System::Windows::Forms::Button^  btnLeft;
 	private: System::Windows::Forms::Button^  btnBackward;
 
@@ -66,8 +67,8 @@ namespace arduino {
 	private: System::Windows::Forms::ToolStripMenuItem^  propertiesToolStripMenuItem;
 	private: System::Windows::Forms::Button^  btnEnter;
 	private: System::Windows::Forms::TextBox^  txtInput;
-	private: System::Windows::Forms::ToolStripMenuItem^  changePortToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  dummyToolStripMenuItem;
+
+
 
 
 
@@ -105,8 +106,6 @@ namespace arduino {
 			this->advancedToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->helpToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->serialPortToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->changePortToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->dummyToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->txtPrompt = (gcnew System::Windows::Forms::RichTextBox());
 			this->btnEnter = (gcnew System::Windows::Forms::Button());
 			this->txtInput = (gcnew System::Windows::Forms::TextBox());
@@ -275,8 +274,8 @@ namespace arduino {
 			// 
 			// advancedToolStripMenuItem
 			// 
-			this->advancedToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->helpToolStripMenuItem, 
-				this->serialPortToolStripMenuItem, this->changePortToolStripMenuItem});
+			this->advancedToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {this->helpToolStripMenuItem, 
+				this->serialPortToolStripMenuItem});
 			this->advancedToolStripMenuItem->ForeColor = System::Drawing::Color::White;
 			resources->ApplyResources(this->advancedToolStripMenuItem, L"advancedToolStripMenuItem");
 			this->advancedToolStripMenuItem->Name = L"advancedToolStripMenuItem";
@@ -298,20 +297,6 @@ namespace arduino {
 			this->serialPortToolStripMenuItem->Name = L"serialPortToolStripMenuItem";
 			resources->ApplyResources(this->serialPortToolStripMenuItem, L"serialPortToolStripMenuItem");
 			this->serialPortToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::serialPortToolStripMenuItem_Click);
-			// 
-			// changePortToolStripMenuItem
-			// 
-			this->changePortToolStripMenuItem->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(230)), 
-				static_cast<System::Int32>(static_cast<System::Byte>(74)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			this->changePortToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {this->dummyToolStripMenuItem});
-			this->changePortToolStripMenuItem->ForeColor = System::Drawing::Color::White;
-			this->changePortToolStripMenuItem->Name = L"changePortToolStripMenuItem";
-			resources->ApplyResources(this->changePortToolStripMenuItem, L"changePortToolStripMenuItem");
-			// 
-			// dummyToolStripMenuItem
-			// 
-			this->dummyToolStripMenuItem->Name = L"dummyToolStripMenuItem";
-			resources->ApplyResources(this->dummyToolStripMenuItem, L"dummyToolStripMenuItem");
 			// 
 			// txtPrompt
 			// 
@@ -375,11 +360,15 @@ namespace arduino {
 		}
 #pragma endregion
 	
+	private: void IsTesing(void){
+				 txtPrompt->Text = "This is testing mode, no board is connected"
+			 }
+	
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
-
 				 //this->serialPort1->Open();
 				 this->dragging = false;
-				 txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.55.2 \n";
+				 txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.55.2." + 
+					 " You are currrently running " + this->serialPort1->PortName + " on a baudrate of " + this->serialPort1->BaudRate + " \n";
 			 }
 
 	private: System::Void btnExit_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -436,7 +425,7 @@ namespace arduino {
 
 	private: System::Void exitToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 
-				 this->serialPort1->Close();
+				 //this->serialPort1->Close();
 				 Application::Exit();
 
 			 }
@@ -497,15 +486,23 @@ namespace arduino {
 				 txtPrompt->Text = "" + ">Text Cleared \n";
 			 }
 	private: System::Void btnEnter_Click(System::Object^  sender, System::EventArgs^  e) {
-				 txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";
-				 txtInput->Text = "";
-				 //this->serialPort1->Write(txtInput->Text);
+				 if(this->serialPort1->IsOpen){
+						//this->serialPort1->WriteLine(txtInput->Text);
+						txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";}
+					 else{
+						MessageBox::Show("Error 2: Port is not open, please check if device is connected properly.", 
+							"Error", MessageBoxButtons::OK, MessageBoxIcon::Error);}
+					txtInput->Text = "";
 			 }
 	private: System::Void txtInput_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
 				 if(e->KeyChar == Char(13)){
-					 txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";
-					 txtInput->Text = "";
-					 //this->serialPort1->Write(txtInput->Text);
+					 if(this->serialPort1->IsOpen){
+						//this->serialPort1->WriteLine(txtInput->Text);
+						txtPrompt->Text = txtPrompt->Text + ">'" + txtInput->Text +  "'" + " sent to board \n";}
+					 else{
+						MessageBox::Show("Error 2: Port is not open, please check if device is connected properly.", 
+							"Error", MessageBoxButtons::OK, MessageBoxIcon::Error);}
+					txtInput->Text = "";
 				 }
 			 }
 	private: System::Void Form1_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
@@ -559,11 +556,11 @@ namespace arduino {
 				 case Keys::S:
 				 case Keys::W:
 				 case Keys::D:
-					 txtPrompt->Text = txtPrompt->Text + ">Breaked \n";
 					 btnRight->Enabled = true;
 					 btnLeft->Enabled = true;
 					 btnBackward->Enabled = true;
 					 btnForward->Enabled = true;
+					 //this->serialPort1->Write("0");
 				 }
 			 }
 	};
