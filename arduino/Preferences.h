@@ -243,7 +243,7 @@ namespace arduino {
 				 this->dragging = false;
 			 }
 	private: System::Void cbxSerialPorts_SelectedIndexChanged_1(System::Object^  sender, System::EventArgs^  e) {
-				 Form1->txtPrompt->Text = ">It worked";
+				 //Form1->txtPrompt->Text = ">It worked";
 			 }
 	private: System::Void btnApply_Click(System::Object^  sender, System::EventArgs^  e) {
 

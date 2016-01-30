@@ -361,14 +361,26 @@ namespace arduino {
 #pragma endregion
 	
 	private: void IsTesing(void){
-				 txtPrompt->Text = "This is testing mode, no board is connected"
+				 txtPrompt->Text = txtPrompt->Text + ">This is testing mode, no board is connected \n";
 			 }
 	
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
+				 try{
 				 //this->serialPort1->Open();
+				 }catch(UnauthorizedAccessException){
+					MessageBox::Show("Error 3: Your access to the port is DENIED. Please close applications that are using the port, for instance Arduino Serial Monitor.", 
+							"Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				 }catch(TimeoutException ^){
+					MessageBox::Show("Error 4: The operation has timed out. Look, I don't know exactly how to fix this problem, but I guess restarting things will help.", 
+							"Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				 }catch(ArgumentOutOfRangeException){
+					MessageBox::Show("Error 5: There is something wrong with the serial port settings. Check if one of the values are invalid, for instance: Baudrate cannot be less than or equal to 0.", 
+							"Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				 }
 				 this->dragging = false;
-				 txtPrompt->Text = ">Welcome to SwagMobile Controller Version 0.55.2." + 
+				 txtPrompt->Text = txtPrompt->Text + ">Welcome to SwagMobile Controller Version 0.55.2." + 
 					 " You are currrently running " + this->serialPort1->PortName + " on a baudrate of " + this->serialPort1->BaudRate + " \n";
+				 
 			 }
 
 	private: System::Void btnExit_Click(System::Object^  sender, System::EventArgs^  e) {
