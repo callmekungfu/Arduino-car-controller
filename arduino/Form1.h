@@ -21,6 +21,7 @@ namespace arduino {
 		{
 			InitializeComponent();
 			IsTesing();
+			findPorts();
 		}
 
 	protected:
@@ -67,6 +68,7 @@ namespace arduino {
 	private: System::Windows::Forms::ToolStripMenuItem^  propertiesToolStripMenuItem;
 	private: System::Windows::Forms::Button^  btnEnter;
 	private: System::Windows::Forms::TextBox^  txtInput;
+	private: System::Windows::Forms::ComboBox^  cbxPorts;
 
 
 
@@ -109,6 +111,7 @@ namespace arduino {
 			this->txtPrompt = (gcnew System::Windows::Forms::RichTextBox());
 			this->btnEnter = (gcnew System::Windows::Forms::Button());
 			this->txtInput = (gcnew System::Windows::Forms::TextBox());
+			this->cbxPorts = (gcnew System::Windows::Forms::ComboBox());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -322,6 +325,12 @@ namespace arduino {
 			this->txtInput->Name = L"txtInput";
 			this->txtInput->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::txtInput_KeyPress);
 			// 
+			// cbxPorts
+			// 
+			this->cbxPorts->FormattingEnabled = true;
+			resources->ApplyResources(this->cbxPorts, L"cbxPorts");
+			this->cbxPorts->Name = L"cbxPorts";
+			// 
 			// Form1
 			// 
 			resources->ApplyResources(this, L"$this");
@@ -329,6 +338,7 @@ namespace arduino {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(87)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(34)));
 			this->CancelButton = this->btnExit;
+			this->Controls->Add(this->cbxPorts);
 			this->Controls->Add(this->txtInput);
 			this->Controls->Add(this->btnEnter);
 			this->Controls->Add(this->txtPrompt);
@@ -360,12 +370,16 @@ namespace arduino {
 		}
 #pragma endregion
 	
+	private: void findPorts(void){
+				array<Object^>^ SerialPorts = SerialPort::GetPortNames();
+				this->cbxPorts->Items->AddRange(SerialPorts);
+			 }
 	private: void IsTesing(void){
 				 txtPrompt->Text = txtPrompt->Text + ">This is testing mode, no board is connected \n";
 			 }
 	
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
-				 try{
+				 /*try{
 				 //this->serialPort1->Open();
 				 }catch(UnauthorizedAccessException){
 					MessageBox::Show("Error 3: Your access to the port is DENIED. Please close applications that are using the port, for instance Arduino Serial Monitor.", 
@@ -376,7 +390,7 @@ namespace arduino {
 				 }catch(ArgumentOutOfRangeException){
 					MessageBox::Show("Error 5: There is something wrong with the serial port settings. Check if one of the values are invalid, for instance: Baudrate cannot be less than or equal to 0.", 
 							"Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				 }
+				 }*/
 				 this->dragging = false;
 				 txtPrompt->Text = txtPrompt->Text + ">Welcome to SwagMobile Controller Version 0.55.2." + 
 					 " You are currrently running " + this->serialPort1->PortName + " on a baudrate of " + this->serialPort1->BaudRate + " \n";

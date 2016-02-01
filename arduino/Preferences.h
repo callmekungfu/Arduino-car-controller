@@ -209,6 +209,7 @@ namespace arduino {
 			this->MinimizeBox = false;
 			this->Name = L"Preferences";
 			this->Text = L"Preferences";
+			this->Load += gcnew System::EventHandler(this, &Preferences::Preferences_Load);
 			this->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Preferences::Preferences_MouseDown);
 			this->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Preferences::Preferences_MouseMove);
 			this->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Preferences::Preferences_MouseUp);
@@ -248,5 +249,7 @@ namespace arduino {
 	private: System::Void btnApply_Click(System::Object^  sender, System::EventArgs^  e) {
 
 			 }
+private: System::Void Preferences_Load(System::Object^  sender, System::EventArgs^  e) {
+		 }
 };
 }
